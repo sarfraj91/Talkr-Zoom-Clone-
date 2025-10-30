@@ -1,0 +1,96 @@
+/* Your existing container */
+.container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100% !important;
+
+  width: 100%;
+  height: 100vh;
+  background: url(/Background.jpg) no-repeat center center / cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  color: #eded36;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* .navbar {
+  width: 100%;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: aliceblue !important;
+  border-radius: 20px;
+} */
+.box {
+  width: 100%;
+  height: 100vh; /* full screen height */
+  display: flex;
+  align-items: center; /* vertical center */
+  justify-content: center; /* horizontal center */
+  background: url(/Background.jpg) no-repeat center center / cover;
+  color: #eded36;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Optional styling for the text section */
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional styling for the image section (if you have an image there) */
+.img {
+  width: 100%;
+  height: 300px;
+  background: url(/pic2.jpg) no-repeat center center / contain;
+}
+
+/* Make it responsive */
+@media (max-width: 768px) {
+  .box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .text {
+    width: 100%;
+  }
+  .img {
+    height: 200px;
+  }
+}
+
+.text-danger {
+  color: #ff4d4d !important;
+  font-weight: 500;
+}
+
+@media (max-width: 1300px) {
+  .box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .text {
+    width: 100%;
+  }
+  .img {
+    height: 200px;
+    margin-top: 20px;
+    
+  }
+  
+}
+
+.text-danger {
+  color: #ff4d4d !important;
+  font-weight: 500;
+}
+
+
+

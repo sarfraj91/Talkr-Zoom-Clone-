@@ -1,0 +1,196 @@
+/* 🌍 Base Container */
+.LandingPageContainer {
+  width: 100vw;
+  height: 100vh;
+  background: url("/Background.jpg") no-repeat center center / cover;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* 🧭 Navbar */
+.navbar {
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* ✅ ensures wrapping on small screens */
+ 
+  
+
+}
+
+.navHeader h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.navList {
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.navList p {
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navList p:hover {
+  color: #d97500;
+}
+
+/* 🎯 Main Section */
+.landingMainContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+  height: 70vh;
+  gap: 2rem;
+  flex-wrap: wrap; /* ✅ ensures stacking on small screens */
+}
+
+.landingMainContainer h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.landingMainContainer p {
+  font-size: 1.4rem;
+  max-width: 500px;
+  opacity: 0.9;
+}
+
+.imgBox {
+  position: relative;
+  top: 40px;
+}
+
+.imgBox img {
+  height: 80vh;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* 🚀 Button */
+.homeButtom {
+  background: #d97500;
+  width: 8rem;
+  padding: 0.6rem;
+  margin-top: 2.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 2px 3px rgb(207, 83, 103);
+  text-align: center;
+  color: white;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.homeButtom:hover {
+  color: rgb(9, 66, 66);
+  transform: scale(0.95);
+  cursor: pointer;
+}
+
+/* 🌐 Responsive Design */
+
+/* ✅ Tablets (768px and below) */
+@media (max-width: 992px ) {
+  .landingMainContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    height: auto;
+    text-align: center;
+  }
+
+  .landingMainContainer h1 {
+    font-size: 2.2rem;
+    margin-top: 100px;
+  }
+
+  .landingMainContainer p {
+    font-size: 1.1rem;
+  }
+
+  .imgBox {
+    top: 20px;
+  }
+
+  .imgBox img {
+    height: 60vh;
+  }
+
+  .homeButtom {
+    margin-top: 1.5rem;
+    width: 7rem;
+  }
+}
+
+/* ✅ Mobile (max-width: 600px) */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+
+  .navHeader h1 {
+    margin-top: 12px;
+    font-size: 1.3rem;
+  }
+
+  .navList {
+    gap: 0.8rem;
+  }
+
+  .landingMainContainer {
+    flex-direction: column;
+    padding: 1.5rem;
+    height: auto;
+    text-align: center;
+  }
+
+  .landingMainContainer h1 {
+    font-size: 1.8rem;
+    margin-top: 100px;
+  }
+
+  .landingMainContainer p {
+    font-size: 1rem;
+  }
+
+  .imgBox img {
+    height: 40vh;
+  }
+
+  .homeButtom {
+    width: 6rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ✅ Extra Small Devices (like small phones) */
+@media (max-width: 400px) {
+  .landingMainContainer h1 {
+    font-size: 1.5rem;
+    margin-top: 110px;
+  }
+
+  .landingMainContainer p {
+    font-size: 0.9rem;
+  }
+
+  .homeButtom {
+    width: 5.5rem;
+    padding: 0.5rem;
+  }
+}
