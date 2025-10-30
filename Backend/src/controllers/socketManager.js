@@ -6,6 +6,7 @@ let timeOnline = {};
 // const [messages, setMessages] = useState([]);
 // const messagesRef = useRef([]);
 
+
 export const connectToSocket = (server) => {
   const io = new Server(server, {
     cors: {
@@ -26,6 +27,7 @@ export const connectToSocket = (server) => {
       }
       connections[path].push(socket.id);
       timeOnline[socket.id] = new Date();
+       
 
       for (let a = 0; a < connections[path].length; a++) {
         io.to(connections[path][a]).emit(
@@ -51,45 +53,7 @@ export const connectToSocket = (server) => {
       io.to(told).emit("signal", socket.id, message);
     });
 
-    //message function
-
-
-    // socket.on("chat-message", (data, sender) => {
-    //   const [matchingRoom, found] = Object.entries(connections).reduce(
-    //     ([room, isFound], [roomKey, roomValue]) => {
-    //       const roomArray = Array.isArray(roomValue) ? roomValue : [roomValue];
-    //       if (!isFound && roomArray.includes(socket.id)) {
-    //         return [roomKey, true];
-    //       }
-    //       return [room, isFound];
-    //     },
-    //     ["", false]
-    //   );
-
-    //   if (found) {
-    //     if (!messages[matchingRoom]) messages[matchingRoom] = [];
-
-    //     messages[matchingRoom].push({
-    //       sender,
-    //       data,
-    //       "socket-id-sender": socket.id,
-    //     });
-
-    //     connections[matchingRoom] = Array.isArray(connections[matchingRoom])
-    //       ? connections[matchingRoom]
-    //       : [connections[matchingRoom]];
-
-       
-
-    //     connections[matchingRoom].forEach((elem) => {
-    //       if (elem !== socket.id) {
-    //         io.to(elem).emit("chat-message", data, sender, socket.id);
-    //       }
-    //     });
-    //   }
-    // });
-
-
+   
     //updated part
     socket.on("chat-message", (data, sender) => {
   // Find the room this socket is in

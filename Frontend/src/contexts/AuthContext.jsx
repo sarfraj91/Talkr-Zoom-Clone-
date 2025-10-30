@@ -5,6 +5,7 @@ import React, { useState, createContext, useContext, useEffect } from "react";
 import axios from "axios";
 import HttpStatus from "http-status";
 import { useNavigate } from "react-router-dom";
+import server from "../environment";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext({});
@@ -12,7 +13,7 @@ export const AuthContext = createContext({});
 export const useAuth = () => useContext(AuthContext);
 
 const client = axios.create({
-  baseURL: "http://localhost:8000/api/v1/users",
+  baseURL: `${server}/api/v1/users`,
 });
 
 export const AuthProvider = ({ children }) => {

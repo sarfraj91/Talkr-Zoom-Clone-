@@ -15,7 +15,11 @@ import ScreenShareIcon from "@mui/icons-material/ScreenShare";
 import ChatIcon from "@mui/icons-material/Chat";
 import Navbar from "./Navbar";
 
-const server_url = "http://localhost:8000";
+import local from "../environment.js";
+
+
+
+const server_url = local.local;
 const connections = {};
 const peerConfig = { iceServers: [{ urls: "stun:stun.l.google.com:19302" }] };
 
@@ -48,9 +52,13 @@ const VideoTile = ({ video }) => {
 
   return (
     <div className="video-tile">
+      
+      
       <video ref={videoRef} autoPlay playsInline muted={video.isLocal} />
       <div className="video-name">
+        
         {video.isLocal ? "You" : `User: ${video.socketId}`}
+        
       </div>
     </div>
   );
@@ -125,7 +133,7 @@ export default function Videomeet() {
     socketRef.current.on("signal", gotMessageFromServer);
 
     socketRef.current.on("connect", () => {
-      socketRef.current.emit("join-call", window.location.href);
+      socketRef.current.emit("join-call", {path:window.location.href,name:username});
       socketIdRef.current = socketRef.current.id;
 
       // User left
@@ -134,7 +142,7 @@ export default function Videomeet() {
       });
 
       // User joined
-      socketRef.current.on("user-joined", (id, clients) => {
+      socketRef.current.on("user-joined", (id, clients) => {//changes
         clients.forEach((socketListId) => {
           if (connections[socketListId]) return;
 
@@ -178,7 +186,7 @@ export default function Videomeet() {
         });
 
         // Create offers for existing peers
-        if (id === socketIdRef.current) {
+        if (id === socketIdRef.current) { 
           Object.keys(connections).forEach(async (id2) => {
             if (id2 === socketIdRef.current) return;
             const peer = connections[id2];
