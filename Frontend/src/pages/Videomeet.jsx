@@ -14,12 +14,13 @@ import CallEndIcon from "@mui/icons-material/CallEnd";
 import ScreenShareIcon from "@mui/icons-material/ScreenShare";
 import ChatIcon from "@mui/icons-material/Chat";
 import Navbar from "./Navbar";
-
-import local from "../environment.js";
-
+import server from "../environment.js"
 
 
-const server_url = local.local;
+
+
+
+const server_url = server;
 const connections = {};
 const peerConfig = { iceServers: [{ urls: "stun:stun.l.google.com:19302" }] };
 
